@@ -9,44 +9,30 @@
 
 
 # Definition for singly-linked list.
-class ListNode:
-     def __init__(self, val=0, next=None):
-         self.val = val
-         self.next = next
-
-
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
 class Solution:
-    def __init__(self):
-        self.listNode = ListNode()
+    def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
+        """
+        :type l1: ListNode
+        :type l2: ListNode
+        :rtype: ListNode
+        """
+        result = ListNode(0)
+        result_tail = result
+        carry = 0
 
-    def addTwoNumbers(self, l1, l2):
-        '''
-        :param l1: ListNode
-        :param l2: ListNode
-        :return: ListNode
-        '''
-        num1 = 0
-        i = 1
-        now_val = l1.val
-        next_node = l1.next
-        while next_node.next is None:
-            num1 += now_val * 1
-            now_val = next_node.val
-            next_node = next_node.next
-            i *= 10
+        while l1 or l2 or carry:
+            val1 = (l1.val if l1 else 0)
+            val2 = (l2.val if l2 else 0)
+            carry, out = divmod(val1 + val2 + carry, 10)
 
-        num2 = 0
-        i = 1
-        now_val = l2.val
-        next_node = l2.next
-        while next_node.next is None:
-            num2 += now_val * 1
-            now_val = next_node.val
-            next_node = next_node.next
-            i *= 10
+            result_tail.next = ListNode(out)
+            result_tail = result_tail.next
 
-        print(num1, num2)
+            l1 = (l1.next if l1 else None)
+            l2 = (l2.next if l2 else None)
 
-
-sol = Solution()
-print(sol.addTwoNumbers([2, 4, 3], [5, 6, 4]))
+        return result.next
