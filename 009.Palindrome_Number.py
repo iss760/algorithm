@@ -14,7 +14,11 @@
 
 
 class Solution:
-    def isPalindrome(self, x: int) -> bool:
+    def isPalindrome(self, x):
+        """
+        :param x: int
+        :return: bool
+        """
         x = str(x)
         for i in range(len(x)):
             if x[i] != x[-1 - i]:

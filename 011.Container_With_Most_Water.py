@@ -6,6 +6,10 @@
 
 class Solution:
     def maxArea(self, ls):
+        """
+        :param ls: list[int]
+        :return: int
+        """
         max_area = 0
         s_idx = 0
         e_idx = len(ls) - 1

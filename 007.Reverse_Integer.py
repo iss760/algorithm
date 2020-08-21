@@ -11,7 +11,11 @@
 
 
 class Solution:
-    def reverse(self, x: int) -> int:
+    def reverse(self, x)
+        """
+        :param x: int 
+        :return: int
+        """
         if x <= -2 ** 31 or x >= 2 ** 31 - 1:
             return 0
 
