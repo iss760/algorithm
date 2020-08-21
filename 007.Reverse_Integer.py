@@ -11,7 +11,7 @@
 
 
 class Solution:
-    def reverse(self, x)
+    def reverse(self, x):
         """
         :param x: int 
         :return: int
