@@ -19,36 +19,24 @@ class Solution:
 
         res = ""
         for i in range(len(s)):
-            temp = s[i]
-            l, r = -1, 1
-
-            while l+i >= 0 and r+i <= len(s)-1:
-                if s[i+l] == s[i+r]:
-                    temp = s[i+l] + temp + s[i+r]
-                    l -= 1
-                    r += 1
-                else:
-                    break
-
+            # 홀수 회문일 경우 (ex. "cdc")
+            temp = self._longestPalindrome(s, i, i)
             res = temp if len(res) < len(temp) else res
 
-        for i in range(len(s) - 1):
-            if s[i] != s[i+1]:
-                continue
-            temp = s[i:i+2]
-            l, r = -1, 1
-
-            while l+i >= 0 and i+1+r <= len(s)-1:
-                if s[i+l] == s[i+1+r]:
-                    temp = s[i+l] + temp + s[i+1+r]
-                    l -= 1
-                    r += 1
-                else:
-                    break
-
+            # 짝수 회문일 경우 (ex. "cddc")
+            temp = self._longestPalindrome(s, i, i+1)
             res = temp if len(res) < len(temp) else res
 
         return res
+
+    def _longestPalindrome(self, s, l, r):
+        while l >= 0 and r < len(s):
+            if s[l] == s[r]:
+                l -= 1
+                r += 1
+            else:
+                break
+        return s[l+1:r]
 
 
 sol = Solution()
