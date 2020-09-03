@@ -50,34 +50,10 @@ class Solution:
 
         return res
 
-    #     size = len(s)
-    #     if size == 0:
-    #         return s
-    #     result = s[0]
-    #     max_len = 0
-    #     for i in range(size - 1):
-    #         for j in range(i + 1, size):
-    #             if self.isPalindrome(s[i:j + 1]) and max_len < len(s[i:j + 1]):
-    #                 max_len = len(s[i:j + 1])
-    #                 result = s[i:j + 1]
-    #     return result
-    #
-    # def isPalindrome(self, s):
-    #     for i in range(len(s) // 2):
-    #         if s[i] != s[-1 - i]:
-    #             return False
-    #     return True
-
 
 sol = Solution()
 print(sol.longestPalindrome("babad"))
-print(sol.longestPalindrome('kxbabxzozy'))
-print(sol.longestPalindrome('kxyu'))
 print(sol.longestPalindrome(''))
-print(sol.longestPalindrome('cbbd'))
-print(sol.longestPalindrome('d'))
-print(sol.longestPalindrome('bb'))
-print(sol.longestPalindrome("ccc"))
 print(sol.longestPalindrome("aaaa"))
 print(sol.longestPalindrome("aaabaaaa"))
 
