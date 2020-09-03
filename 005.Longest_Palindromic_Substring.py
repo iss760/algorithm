@@ -30,6 +30,7 @@ class Solution:
         return res
 
     def _longestPalindrome(self, s, l, r):
+        # 양 옆으로 회문 여부 확인, 확장
         while l >= 0 and r < len(s):
             if s[l] == s[r]:
                 l -= 1
