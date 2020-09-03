@@ -15,26 +15,25 @@ class Solution:
         :return: int
         """
         nums.sort()
-        res = []
-        for i in range(len(nums)):
-            if i > 0 and nums[i] == nums[i - 1]:
-                continue
+        res = nums[0] + nums[1] + nums[2]
+        for i in range(len(nums) - 2):
+            j, k = i + 1, len(nums) - 1
+            while j < k:
+                sum = nums[i] + nums[j] + nums[k]
+                if sum == target:
+                    return sum
 
-            target = nums[i] * -1
-            s_idx, e_idx = i + 1, len(nums) - 1
-            while s_idx < e_idx:
-                if nums[s_idx] + nums[e_idx] == target:
-                    res.append([nums[i], nums[s_idx], nums[e_idx]])
-                    s_idx += 1
-                    while s_idx < e_idx and nums[s_idx] == nums[s_idx - 1]:
-                        s_idx += 1
-                elif nums[s_idx] + nums[e_idx] < target:
-                    s_idx += 1
-                else:
-                    e_idx -= 1
+                if abs(sum - target) < abs(res - target):
+                    res = sum
+
+                if sum < target:
+                    j += 1
+                elif sum > target:
+                    k -= 1
+
         return res
 
 
 
 sol = Solution()
-print(sol.threeSumClosest([-1, 2, 1, -4], 2))
+print(sol.threeSumClosest([-1, 2, 1, -4], 1))
