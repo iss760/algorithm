@@ -22,14 +22,18 @@ class Solution:
         """
         temp = []
         max_long = 0
-        for idx in range(len(s)):
-            temp.append(s[idx])
+        for i in range(len(s)):
+            temp.append(s[i])
             if len(temp) > max_long:
                 max_long = len(temp)
 
-            if idx != len(s) - 1 and s[idx + 1] in temp:
-                temp = temp[temp.index(s[idx + 1]) + 1:]
+            # 다음 원소가 temp에 있을 경우
+            if i != len(s) - 1 and s[i + 1] in temp:
+                # 첫번째 원소를 뺀 나머지로 리스트 구성
+                temp = temp[temp.index(s[i + 1]) + 1:]
+
         return max_long
+
 
 sol = Solution()
 print(sol.lengthOfLongestSubstring("abcabcaaw"))
