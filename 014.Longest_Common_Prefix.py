@@ -22,11 +22,11 @@ class Solution:
 
         for i in range(len(min(str_ls))):
             temp = str_ls[0][i]
+            # 모든 원소가 temp를 포함하는지 검사
             if all(_s[i] == temp for _s in str_ls):
                 prefix += temp
             else:
                 break
-            print(prefix)
         return prefix
 
 
