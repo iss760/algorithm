@@ -26,33 +26,37 @@ class Solution:
         :return: str
         """
         max_idx = len(s) - 1
+        # 세로, 가로가 한줄로 배열되는 경우
         if len(s) <= numRows or numRows == 1:
             return s
 
-        result = ""
+        res = ""
         for row in range(numRows):
+            # 규칙성
             jump1 = (numRows - row - 1) * 2
             jump2 = row * 2
 
-            cul = row
-            result += s[cul]
-            isJump1 = True
+            cur = row
+            res += s[cur]
             while True:
-                if row == 0:
-                    jump = jump1
-                elif row == numRows - 1:
-                    jump = jump2
-                else:
-                    if isJump1:
-                        jump = jump1
-                        isJump1 = False
-                    else:
-                        jump = jump2
-                        isJump1 = True
-                cul += jump
-                if cul <= max_idx:
-                    result += s[cul]
-                else:
+                if cur+jump1 > max_idx:
                     break
-        return result
+                cur += jump1
+                if jump1 != 0 and cur <= max_idx:
+                    res += s[cur]
+
+                if cur+jump2 > max_idx:
+                    break
+                cur += jump2
+                if jump2 != 0 and cur <= max_idx:
+                    res += s[cur]
+
+        return res
+
+sol = Solution()
+print(sol.convert("PAYPALISHIRING", 4))
+print(sol.convert("ABCDE", 4))
+print(sol.convert("ABC", 2))
+print(sol.convert("PAYPALISHIRINGTA", 4))
+print(sol.convert("PAYPALISHIRING", 5))
 
