@@ -27,8 +27,10 @@ class Solution:
         romans = {"M": 1000, "D": 500, "C": 100, "L": 50, "X": 10, "V": 5, "I": 1}
         res = 0
         for i in range(len(s)):
+            # 마지막 문자일경우
             if i == len(s) - 1:
                 res += romans[s[i]]
+            # like, CM: 1000-100, IV: 5-1
             elif romans[s[i]] < romans[s[i+1]]:
                res -= romans[s[i]]
             else:
