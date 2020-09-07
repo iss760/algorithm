@@ -19,6 +19,7 @@ class Solution:
         nums.sort()
         res = []
         for i in range(len(nums)):
+            # 중복되는 원소에 대한 불필요한 계산 생략
             if i > 0 and nums[i] == nums[i-1]:
                 continue
 
