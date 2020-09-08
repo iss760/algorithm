@@ -17,19 +17,19 @@ class Solution:
         nums.sort()
         res = nums[0] + nums[1] + nums[2]
         for i in range(len(nums) - 2):
-            j, k = i + 1, len(nums) - 1
-            while j < k:
-                sum = nums[i] + nums[j] + nums[k]
+            s_idx, e_idx = i + 1, len(nums) - 1
+            while s_idx < e_idx:
+                sum = nums[i] + nums[s_idx] + nums[e_idx]
                 if sum == target:
                     return sum
-
+                # 근접 값 확인
                 if abs(sum - target) < abs(res - target):
                     res = sum
 
                 if sum < target:
-                    j += 1
+                    s_idx += 1
                 elif sum > target:
-                    k -= 1
+                    e_idx -= 1
 
         return res
 
