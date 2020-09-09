@@ -22,6 +22,7 @@ class Solution:
 
         nums = map(int, [num for num in digits])
         res = [""] if digits else []
+        # 모든 경우의 수 조합
         for n in nums:
             res = [p + q for p in res for q in dic[n]]
         return res
