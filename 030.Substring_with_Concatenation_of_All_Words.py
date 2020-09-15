@@ -27,21 +27,26 @@ class Solution:
         """
         word_len = len(words[0])
         res = []
+        # 입력 문장 순환
         for i in range(len(s)):
-            temp = words.copy()
+            temp = words.copy()     # 깊은복사
+            # 단어 순환 탐색
             for j in range(i, len(s), word_len):
                 string = s[j:j+word_len]
+                # 단어장에 없을 경우
                 if string not in temp:
                     break
-                temp.remove(string)
+                temp.remove(string)     # 찾은 단어 단어장에서 제거
+            # 모든 단어 사용 했을 경우
             if not temp:
                 res.append(i)
 
         return res
 
 
+
 sol = Solution()
 #print(sol.findSubstring("barfoothefoobarman", ["foo", "bar"]))
-#print(sol.findSubstring("wordgoodgoodgoodbestword", ["word", "good", "best", "word"]))
+print(sol.findSubstring2("wordgoodgoodgoodbestword", ["word", "good", "best", "word"]))
 #print(sol.findSubstring("barfoofoobarthefoobarman", ["bar", "foo", "the"]))
-print(sol.findSubstring("lingmindraboofooowingdingbarrwingmonkeypoundcake", ["fooo", "barr", "wing", "ding", "wing"]))
+print(sol.findSubstring2("lingmindraboofooowingdingbarrwingmonkeypoundcake", ["fooo", "barr", "wing", "ding", "wing"]))
