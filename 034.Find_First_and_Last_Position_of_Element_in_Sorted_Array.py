@@ -23,8 +23,3 @@ class Solution:
             return [-1, -1]
 
 
-sol = Solution()
-print(sol.searchRange([5, 7, 7, 8, 8, 10], 8))
-print(sol.searchRange([5, 7, 7, 8, 8, 10], 6))
-print(sol.searchRange([5, 7, 7, 8, 8, 10, 11], 10))
-print(sol.searchRange([1], 1))

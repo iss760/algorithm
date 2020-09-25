@@ -23,12 +23,3 @@ class Solution:
                 l = mid
             else:
                 r = mid
-
-
-sol = Solution()
-print(sol.searchInsert([1, 3, 5, 6], 5))
-print(sol.searchInsert([1, 3, 5, 6, 8], 7))
-print(sol.searchInsert([1, 3, 5, 6, 8], 0))
-print(sol.searchInsert([1, 3, 5, 6, 8], 9))
-print(sol.searchInsert([1], 0))
-print(sol.searchInsert([1, 5], 5))
