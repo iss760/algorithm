@@ -6,7 +6,7 @@ class Combination:
             if r == 1:
                 yield [candidates[i]]
             else:
-                for nex in self.combination_with_repetition(candidates[i+1:], r - 1):
+                for nex in self.combination(candidates[i+1:], r - 1):
                     yield [candidates[i]] + nex
 
     def combination_with_repetition(self, candidates, r):
@@ -30,15 +30,13 @@ class Combination:
             if candidates[i] == target:
                 yield [candidates[i]]
             elif candidates[i] < target:
-                for nex in self.combination_sum(candidates[i:], target-candidates[i]):
+                for nex in self.combination_with_repetition_sum(candidates[i:], target-candidates[i]):
                     yield [candidates[i]] + nex
 
 
 if __name__ == '__main__':
     cmb = Combination()
-    for i in cmb.combination([2, 3, 5, 6], 2):
+    res = cmb.combination_sum([10, 1, 2, 7, 6, 1, 5], 8)
+    for i in res:
         print(i)
 
-    res = cmb.combination_with_repetition([2, 3, 5, 6], 2)
-    print(res)
-    print('a')
