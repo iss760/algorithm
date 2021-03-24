@@ -55,6 +55,7 @@ class Block:
         self.BLOCK_CANDIDATES.append(block1)
 
     def down_block(self):
+        passs
         
 
 
