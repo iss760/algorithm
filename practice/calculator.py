@@ -35,4 +35,3 @@ print(cal.calculator("((3*(4+2))-5)"))
 print(cal.calculator("3*(4+2)-5"))
 print(cal.calculator("3(4+2)-5"))
 # 42+3*5-
-
